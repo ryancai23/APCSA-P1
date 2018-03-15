@@ -3,7 +3,6 @@ import java.util.Scanner;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
 import java.util.ArrayList;
-
 public class Grades
 {
 	private ArrayList<Double> grades;
@@ -13,14 +12,14 @@ public class Grades
 		setGrades("");
 	}
 	
-	public Grades(String gradeList)
+	public Grades(String grades)
 	{
-		setGrades(gradeList);		
+		setGrades(grades);		
 	}
 	
-	public void setGrades(String gradeList)
+	public void setGrades(String gradelist)
 	{
-		Scanner lol = new Scanner(gradeList);
+		Scanner lol = new Scanner(gradelist);
 		grades =new ArrayList<Double>();
 		lol.next();
 		lol.next();
@@ -28,41 +27,56 @@ public class Grades
 			grades.add(lol.nextDouble());
 		}
 
+
 	}
 	
 	public void setGrade(int spot, double grade)
 	{
-		grades.set(spot, grade);
+		grades.add(spot,grade);
+
+
 	}
 	
 	public double getSum()
 	{
 		double sum=0.0;
-		for (int i = 0; i < grades.size(); i++){
-			sum += grades.get(i);
+		for (int i =0;i<grades.size();i++){
+			sum+=grades.get(i);
 		}
+
+
+
 		return sum;
 	}
 	
 	public double getLowGrade()
 	{
-		double low = grades.get(0);
-		for (int i = 1; i < grades.size(); i++){
-			if (grades.get(i) < low){
+		double low = Double.MAX_VALUE;
+		for (int i =0;i<grades.size();i++){
+			if (low>grades.get(i)){
 				low = grades.get(i);
 			}
+			
 		}
+
+
+
+
 		return low;
 	}
 	
 	public double getHighGrade()
 	{
-		double high = grades.get(0);
-		for (int i = 1; i < grades.size(); i++){
-			if (grades.get(i) > high){
+		double high = Double.MIN_VALUE;
+		for (int i =0;i<grades.size();i++){
+			if (high<grades.get(i)){
 				high = grades.get(i);
 			}
 		}
+
+
+
+
 		return high;
 	}
 	
@@ -74,9 +88,13 @@ public class Grades
 	public String toString()
 	{
 		String output="";
-		for (int i = 0; i < grades.size(); i++){
-			output += grades.get(i) + " ";
+		for (int i =0;i<grades.size();i++){
+			output+=grades.get(i)+" ";
 		}
+
+
+
+
 		return output;
 	}	
 }
