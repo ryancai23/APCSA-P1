@@ -20,11 +20,12 @@ public class Grades
 	
 	public void setGrades(String gradeList)
 	{
-		grades = new ArrayList<Double>(Integer.parseInt(gradeList.substring(0, 1)));
-		gradeList = gradeList.substring(4);
-		String[] array = gradeList.split(" ");
-		for (int i = 0; i < array.length; i++){
-			grades.add(Double.parseDouble(array[i]));
+		Scanner lol = new Scanner(gradeList);
+		grades =new ArrayList<Double>();
+		lol.next();
+		lol.next();
+		while (lol.hasNextDouble()){
+			grades.add(lol.nextDouble());
 		}
 
 	}

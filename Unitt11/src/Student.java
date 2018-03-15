@@ -3,7 +3,7 @@ import java.util.Scanner;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
 
-public class Student implements Comparable<Student>
+public class Student 
 {
 	private String myName;
 	private Grades myGrades;
@@ -72,16 +72,6 @@ public class Student implements Comparable<Student>
 	
 	public String toString()
 	{
-		return myName + " = " + myGrades;
+		return getName()+" = " +myGrades.toString();
 	}	
-	@Override
-	public int compareTo(Student stu){
-		return Integer.compare((int)this.getAverage(), (int)stu.getAverage());
-	}
-	public boolean equals(Student stu){
-		if (this.getAverage() == stu.getAverage()){
-			return true;
-		}
-		return false;
-	}
 }
