@@ -55,12 +55,12 @@ public class ElevensBoard extends Board {
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		if (selectedCards.size()==2){
-			if (cardAt(selectedCards.get(0)).pointValue()+cardAt(selectedCards.get(1)).pointValue()==11)
+			if(containsPairSum11(selectedCards))
 				return true;
 			else
 				return false;}
 		else if (selectedCards.size()==3){
-			if ((cardAt(selectedCards.get(0)).rank()=="jack"||cardAt(selectedCards.get(1)).rank()=="jack"||cardAt(selectedCards.get(2)).rank()=="jack")&&(cardAt(selectedCards.get(0)).rank()=="queen"||cardAt(selectedCards.get(1)).rank()=="queen"||cardAt(selectedCards.get(2)).rank()=="queen")&&(cardAt(selectedCards.get(0)).rank()=="king"||cardAt(selectedCards.get(1)).rank()=="king"||cardAt(selectedCards.get(2)).rank()=="king"))
+			if (containsJQK(selectedCards))
 				return true;
 			else
 				return false;
