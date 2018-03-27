@@ -36,7 +36,9 @@ public class Maze
 	public void hasExitPath(int r, int c)
 	{
 		int fit = maze.length;
-		if(r >= 0 && r < fit && c >= 0 && c < fit && maze[r][c] == 1) {
+		if(r >= 0 && r < fit && c >= 0 && c < fit)
+			if(maze[r][c] == 1) 
+			{
 			maze[r][c] = 0;
 			if(c == maze[r].length-1) {
 				truther = true;
