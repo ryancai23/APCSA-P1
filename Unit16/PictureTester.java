@@ -95,7 +95,12 @@ public class PictureTester
     canvas.createCollage();
     canvas.explore();
   }
- 
+  public static void testCopy()
+  {
+    Picture canvas = new Picture("C:\\Users\\rcais\\Downloads\\Unit16\\pixLab\\images\\640x480.jpg");
+    canvas.createCollage();
+    canvas.explore();
+  }
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -126,8 +131,8 @@ public class PictureTester
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-	 testCollage();
-   
+	 //testCollage();
+   //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
