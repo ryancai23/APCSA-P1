@@ -38,7 +38,7 @@ public class Alien extends MovingThing
 		speed=s;
 		try
 		{
-			URL url = getClass().getResource("/images/alien.jpg");
+			URL url = getClass().getResource("alien.jpg");
 			image = ImageIO.read(url);
 		}
 		catch(Exception e)
@@ -59,7 +59,22 @@ public class Alien extends MovingThing
 
    public void move(String direction)
 	{
-	   //add code here
+	   if(direction.equals("UP"))
+	   {
+		   setY(getY()-getSpeed());
+	   }
+	   if(direction.equals("DOWN"))
+	   {
+		   setY(getY()+getSpeed());
+	   }
+	   if(direction.equals("LEFT"))
+	   {
+		   setX(getX()-getSpeed());
+	   }
+	   if(direction.equals("RIGHT"))
+	   {
+		   setX(getX()+getSpeed());
+	   }
 	}
 
 	public void draw( Graphics window )
