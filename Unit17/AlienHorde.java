@@ -40,16 +40,18 @@ public class AlienHorde
 	{
 		time++;
 		for (Alien alien : aliens) {
-			if (time <= 120)
-				alien.move("RIGHT");
-			else if (time <= 320)
-				alien.move("DOWN");
-			else if (time <= 440)
+			if (time <= 200) {
 				alien.move("LEFT");
-			else if (time <= 640)
-				alien.move("UP");
-			else if (time <= 1000)
-				time = 0;
+			} else if (time <= 220) {
+				alien.move("DOWN");
+			} else if (time <= 420) {
+				alien.move("RIGHT");
+			} 
+			 else if (time <= 440) {
+					alien.move("DOWN");
+					time=0;
+
+			 }
 		}
 	}
 

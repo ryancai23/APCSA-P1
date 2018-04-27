@@ -38,12 +38,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		horde = new AlienHorde(20);
 		//instantiate other instance variables
 		//Ship, Alien
-		ship = new Ship(400, 500, 35, 35, 2);
+		ship = new Ship(400, 500, 75, 75, 2);
 		shots = new Bullets();
 		keys = new boolean[5];
 		for (int i = 0; i <5; i++) {
 			for (int j = 0; j < 4; j++) {
-				horde.add(new Alien(200+80*i,40*j, 40,40,2));
+				horde.add(new Alien(400+80*i,40*j, 40,40,2));
 			}
 		}
 		this.addKeyListener(this);
@@ -147,7 +147,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		if (e.getKeyCode() == KeyEvent.VK_UP)
 		{
 			keys[2] = true;
-		}
+		} 
 		if (e.getKeyCode() == KeyEvent.VK_DOWN)
 		{
 			keys[3] = true;
