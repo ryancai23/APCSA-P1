@@ -83,6 +83,7 @@ public abstract class MovingThing implements Moveable
 	{
 		return height;  //finish this method
 	}
+<<<<<<< HEAD
 	public boolean Collide(MovingThing move)
 	{
 		if((getX()>=move.getX()&&getX()<=move.getX()+move.getWidth())&&(getY()>=move.getY()&&getY()<=move.getY()+move.getHeight()))
@@ -94,6 +95,8 @@ public abstract class MovingThing implements Moveable
 		return false;
 		
 	}
+=======
+>>>>>>> 7a9d19b476bf73753455df2187082a5ec0cdab61
 
 	public abstract void move(String direction);
 	public abstract void draw(Graphics window);
