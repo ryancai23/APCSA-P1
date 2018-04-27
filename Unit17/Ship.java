@@ -43,10 +43,7 @@ public class Ship extends MovingThing
 		}
 		catch(Exception e)
 		{
-<<<<<<< HEAD
 			e.printStackTrace();
-=======
->>>>>>> 7a9d19b476bf73753455df2187082a5ec0cdab61
 			System.out.println("you messed up");
 		}
 	}
@@ -91,8 +88,4 @@ public class Ship extends MovingThing
 	{
 		return super.toString() + getSpeed();
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 7a9d19b476bf73753455df2187082a5ec0cdab61

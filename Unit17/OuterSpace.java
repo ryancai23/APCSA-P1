@@ -19,12 +19,7 @@ import java.util.ArrayList;
 public class OuterSpace extends Canvas implements KeyListener, Runnable
 {
 	private Ship ship;
-<<<<<<< HEAD
 	
-=======
-	private Alien alienOne;
-	private Alien alienTwo;
->>>>>>> 7a9d19b476bf73753455df2187082a5ec0cdab61
 
 	// uncomment once you are ready for this part
 	 
@@ -40,7 +35,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		setBackground(Color.black);
 
 		keys = new boolean[5];
-<<<<<<< HEAD
 		horde = new AlienHorde(20);
 		//instantiate other instance variables
 		//Ship, Alien
@@ -55,17 +49,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		this.addKeyListener(this);
 		new Thread(this).start();
 		
-=======
-
-		//instantiate other instance variables
-		//Ship, Alien
-		ship = new Ship(10,10,50,50,1);
-		alienOne = new Alien(10,10,50,50,1);
-		alienTwo = new Alien(40,40,50,50,1);
-		this.addKeyListener(this);
-		new Thread(this).start();
-
->>>>>>> 7a9d19b476bf73753455df2187082a5ec0cdab61
 		setVisible(true);
 	}
 
@@ -93,13 +76,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
 		ship.draw(graphToBack);
-<<<<<<< HEAD
 		horde.drawEmAll(graphToBack);
 		shots.drawEmAll(twoDGraph);
-=======
-		alienOne.draw(graphToBack);
-		alienTwo.draw(graphToBack);
->>>>>>> 7a9d19b476bf73753455df2187082a5ec0cdab61
 		if(keys[0] == true)
 		{
 			ship.move("LEFT");
@@ -116,7 +94,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		{
 			ship.move("DOWN");
 		}
-<<<<<<< HEAD
 		if(keys[4] == true)
 		{
 			shots.add(new Ammo(ship.getX()+ship.getWidth()/2-5,ship.getY(),4));
@@ -153,14 +130,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
 
 		
-=======
-
-		//add code to move Ship, Alien, etc.
-
-		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
-
-
->>>>>>> 7a9d19b476bf73753455df2187082a5ec0cdab61
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
 
@@ -234,7 +203,3 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
       }
   	}
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 7a9d19b476bf73753455df2187082a5ec0cdab61
