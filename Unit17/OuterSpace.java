@@ -22,11 +22,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	
 
 	// uncomment once you are ready for this part
-	 
+	private boolean activatepower = false;
+	 private int hordesize =0;
    private AlienHorde horde;
 	private Bullets shots;
-	
-
+	private Avocado guac;
+	private Bullets shots2;
 	private boolean[] keys;
 	private BufferedImage back;
 
@@ -39,11 +40,21 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		//instantiate other instance variables
 		//Ship, Alien
 		ship = new Ship(400, 500, 75, 75, 2);
-		shots = new Bullets();
+		shots = new Bullets(); 
+		shots2 = new Bullets();
 		keys = new boolean[5];
+		guac = new Avocado(400+80*4,40*3, 40,40,2);
 		for (int i = 0; i <5; i++) {
 			for (int j = 0; j < 4; j++) {
+				if(i ==4 && j==3)
+				{
+					
+				}
+				else
+				{
 				horde.add(new Alien(400+80*i,40*j, 40,40,2));
+				hordesize++;
+				}
 			}
 		}
 		this.addKeyListener(this);
@@ -78,6 +89,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		ship.draw(graphToBack);
 		horde.drawEmAll(graphToBack);
 		shots.drawEmAll(twoDGraph);
+		shots2.drawEmAll(twoDGraph);
+		guac.draw(graphToBack);
 		if(keys[0] == true)
 		{
 			ship.move("LEFT");
@@ -96,16 +109,42 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		}
 		if(keys[4] == true)
 		{
+			if(activatepower)
+			{
+				shots.add(new Ammo(ship.getX()+ship.getWidth()-5,ship.getY(),8));
+				shots2.add(new Ammo(ship.getX()+ship.getWidth()-60,ship.getY(),8));
+			}
+			else
 			shots.add(new Ammo(ship.getX()+ship.getWidth()/2-5,ship.getY(),4));
 
 		}
 		for (int i = 0; i < shots.getAmmo().size(); i++)
-			for (int j = 0; j < horde.getAliens().size(); j++)
+		{
+			if(shots.getAmmo().get(i).Collide(guac))
+			{
+				guac.setVisible(false);
+				activatepower =true;
+				
+			}
+			for (int j = 0; j < horde.getAliens().size(); j++) {
 				if (shots.getAmmo().get(i).Collide(horde.getAliens().get(j))) {
 					shots.getAmmo().remove(i--);
 					horde.getAliens().remove(j--);
-					
+				
 				}
+		}
+		}
+				for (int i = 0; i < shots2.getAmmo().size(); i++)
+		{
+			
+			for (int j = 0; j < horde.getAliens().size(); j++) {
+				if (shots2.getAmmo().get(i).Collide(horde.getAliens().get(j))) {
+					shots2.getAmmo().remove(i--);
+					horde.getAliens().remove(j--);
+				
+				}
+		}
+		}
 		
 		// check collision between ship and alienhorde
 		for (int i = 0; i < horde.getAliens().size(); i++)
@@ -115,9 +154,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			}
 		
 		horde.moveEmAll();
+		guac.moveAvo();
 		shots.moveEmAll();
 		shots.cleanEmUp();
 		shots.timeiskey();
+		shots2.moveEmAll();
+		shots2.cleanEmUp();
+		shots2.timeiskey();
 		
 		//add code to move Ship, Alien, etc.
 		
@@ -128,7 +171,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			System.exit(0);
 		}
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
-
+		
+			
+		
 		
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
